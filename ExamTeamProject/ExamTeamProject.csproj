@@ -83,5 +83,14 @@
   <ItemGroup>
     <None Include="HomeIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SearchIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlayIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainPageBg.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

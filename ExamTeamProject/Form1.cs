@@ -1,34 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace ExamTeamProject {
     public partial class Form1 : Form {
+        private PictureBox pbBackground;
+
         public Form1() {
             InitializeComponent();
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\MainPageBg.jpg");
+
+            InitializeBackgroundImage();
+            Text = "EchoJukebox";
+            Icon = new Icon("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Icon.ico");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        // Изменение фона идет через PictureBox т.к. он более гибкий плане изменений
 
-        }
-
-        private void SetBackgroundImage(string imagePath) {
-            PictureBox pbBackground = new PictureBox();
-            pbBackground.Image = Image.FromFile(imagePath);
-            pbBackground.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbBackground.Dock = DockStyle.Fill;
+        private void InitializeBackgroundImage() {
+            pbBackground = new PictureBox(); // создаем новый PictureBox
+            pbBackground.SizeMode = PictureBoxSizeMode.StretchImage; // увеличение PictureBox пропорционально
+            pbBackground.Dock = DockStyle.Fill; // растягиваем его на весь экран
             pbBackground.BackColor = Color.Transparent;
 
             this.Controls.Add(pbBackground);
-            this.SendToBack();
+            this.SendToBack(); // добавляем его на экран
+
+            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\MainPageBg.jpg");
+        }
+
+        private void SetBackgroundImage(string imagePath) {
+            pbBackground.Image = Image.FromFile(imagePath);
+        }
+
+        private void Home_Click(object sender, EventArgs e) {
+            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\MainPageBg.jpg");
+            MessageBox.Show("Home button is working", "Test", MessageBoxButtons.OK);
+        }
+
+        private void Search_Click(object sender, EventArgs e) {
+            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\MainPageBg1.jpg");
+            MessageBox.Show("Search button is working", "Test", MessageBoxButtons.OK);
+        }
+
+        private void Playlist_Click(object sender, EventArgs e) {
+            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\MainPageBg1.jpg");
+            MessageBox.Show("Play button is working", "Test", MessageBoxButtons.OK);
         }
     }
 }
+
