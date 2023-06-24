@@ -40,7 +40,7 @@ namespace ExamTeamProject
             // Playlist
             // 
             this.Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
-            this.Playlist.Image = global::ExamTeamProject.Properties.Resources.PlayIcon;
+            this.Playlist.ErrorImage = null;
             this.Playlist.Location = new System.Drawing.Point(329, 442);
             this.Playlist.Name = "Playlist";
             this.Playlist.Size = new System.Drawing.Size(152, 78);
@@ -51,7 +51,7 @@ namespace ExamTeamProject
             // Search
             // 
             this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
-            this.Search.Image = global::ExamTeamProject.Properties.Resources.SearchIcon;
+            this.Search.ErrorImage = null;
             this.Search.Location = new System.Drawing.Point(178, 446);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(74, 82);
@@ -62,7 +62,8 @@ namespace ExamTeamProject
             // Home
             // 
             this.Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
-            this.Home.Image = global::ExamTeamProject.Properties.Resources.HomeIcon;
+            this.Home.ErrorImage = null;
+            this.Home.InitialImage = null;
             this.Home.Location = new System.Drawing.Point(20, 451);
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(60, 84);
