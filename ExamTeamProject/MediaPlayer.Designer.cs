@@ -1,7 +1,6 @@
-﻿
-namespace ExamTeamProject
+﻿namespace ExamTeamProject
 {
-    partial class Form1
+    partial class MediaPlayer
     {
         /// <summary>
         /// Required designer variable.
@@ -31,16 +30,15 @@ namespace ExamTeamProject
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // MediaPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 671);
-            this.MaximumSize = new System.Drawing.Size(1366, 750);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "Form1";
-            this.Text = "Spotify 95";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.ClientSize = new System.Drawing.Size(234, 161);
+            this.MaximumSize = new System.Drawing.Size(250, 200);
+            this.MinimumSize = new System.Drawing.Size(150, 100);
+            this.Name = "MediaPlayer";
+            this.Text = "MediaPlayer";
             this.ResumeLayout(false);
 
         }
@@ -48,4 +46,3 @@ namespace ExamTeamProject
         #endregion
     }
 }
-
