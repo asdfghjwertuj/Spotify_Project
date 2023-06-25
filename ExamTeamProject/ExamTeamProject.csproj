@@ -44,6 +44,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TagLibSharp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\TagLibSharp.2.3.0\lib\net462\TagLibSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -62,6 +65,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,12 +85,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\HipHopIcon.png" />
+    <None Include="Resources\ElectroIcon.png" />
+    <None Include="Resources\CountryIcon.png" />
     <Content Include="Resources\HomeIcon.png" />
+    <None Include="Resources\LatinoIcon.png" />
+    <None Include="Resources\KPopIcon.png" />
     <Content Include="Resources\MainPageBg.jpg" />
     <Content Include="Resources\MainPageBg1.jpg" />
     <Content Include="Resources\PlayIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\PopIcon.png" />
+    <None Include="Resources\RockIcon.png" />
+    <None Include="Resources\RnBIcon.png" />
+    <None Include="Resources\PunkRockIcon.png" />
     <Content Include="Resources\SearchIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
