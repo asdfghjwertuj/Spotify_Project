@@ -41,6 +41,7 @@ namespace ExamTeamProject
             this.Pop = new System.Windows.Forms.PictureBox();
             this.Playlist = new System.Windows.Forms.PictureBox();
             this.Search = new System.Windows.Forms.PictureBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KPop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PunkRock)).BeginInit();
@@ -58,6 +59,7 @@ namespace ExamTeamProject
             // Home
             // 
             this.Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
+            this.Home.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Home.ErrorImage = null;
             this.Home.InitialImage = null;
             this.Home.Location = new System.Drawing.Point(20, 451);
@@ -69,6 +71,7 @@ namespace ExamTeamProject
             // 
             // KPop
             // 
+            this.KPop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KPop.Image = global::ExamTeamProject.Properties.Resources.KPopIcon;
             this.KPop.Location = new System.Drawing.Point(377, 327);
             this.KPop.Name = "KPop";
@@ -79,79 +82,96 @@ namespace ExamTeamProject
             // 
             // PunkRock
             // 
+            this.PunkRock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PunkRock.Image = global::ExamTeamProject.Properties.Resources.PunkRockIcon;
             this.PunkRock.Location = new System.Drawing.Point(206, 327);
             this.PunkRock.Name = "PunkRock";
             this.PunkRock.Size = new System.Drawing.Size(71, 71);
             this.PunkRock.TabIndex = 11;
             this.PunkRock.TabStop = false;
+            this.PunkRock.Click += new System.EventHandler(this.PunkRock_Click);
             // 
             // Country
             // 
+            this.Country.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Country.Image = global::ExamTeamProject.Properties.Resources.CountryIcon;
             this.Country.Location = new System.Drawing.Point(42, 327);
             this.Country.Name = "Country";
             this.Country.Size = new System.Drawing.Size(71, 71);
             this.Country.TabIndex = 10;
             this.Country.TabStop = false;
+            this.Country.Click += new System.EventHandler(this.Country_Click);
             // 
             // Latino
             // 
+            this.Latino.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Latino.Image = global::ExamTeamProject.Properties.Resources.LatinoIcon;
             this.Latino.Location = new System.Drawing.Point(377, 224);
             this.Latino.Name = "Latino";
             this.Latino.Size = new System.Drawing.Size(71, 71);
             this.Latino.TabIndex = 9;
             this.Latino.TabStop = false;
+            this.Latino.Click += new System.EventHandler(this.Latino_Click);
             // 
             // RnB
             // 
+            this.RnB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RnB.Image = global::ExamTeamProject.Properties.Resources.RnBIcon;
             this.RnB.Location = new System.Drawing.Point(206, 224);
             this.RnB.Name = "RnB";
             this.RnB.Size = new System.Drawing.Size(71, 71);
             this.RnB.TabIndex = 8;
             this.RnB.TabStop = false;
+            this.RnB.Click += new System.EventHandler(this.RnB_Click);
             // 
             // Electro
             // 
+            this.Electro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Electro.Image = global::ExamTeamProject.Properties.Resources.ElectroIcon;
             this.Electro.Location = new System.Drawing.Point(42, 224);
             this.Electro.Name = "Electro";
             this.Electro.Size = new System.Drawing.Size(71, 71);
             this.Electro.TabIndex = 7;
             this.Electro.TabStop = false;
+            this.Electro.Click += new System.EventHandler(this.Electro_Click);
             // 
             // HipHop
             // 
+            this.HipHop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.HipHop.Image = global::ExamTeamProject.Properties.Resources.HipHopIcon;
             this.HipHop.Location = new System.Drawing.Point(377, 117);
             this.HipHop.Name = "HipHop";
             this.HipHop.Size = new System.Drawing.Size(71, 71);
             this.HipHop.TabIndex = 6;
             this.HipHop.TabStop = false;
+            this.HipHop.Click += new System.EventHandler(this.HipHop_Click);
             // 
             // Rock
             // 
+            this.Rock.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Rock.Image = global::ExamTeamProject.Properties.Resources.RockIcon;
             this.Rock.Location = new System.Drawing.Point(206, 117);
             this.Rock.Name = "Rock";
             this.Rock.Size = new System.Drawing.Size(71, 71);
             this.Rock.TabIndex = 5;
             this.Rock.TabStop = false;
+            this.Rock.Click += new System.EventHandler(this.Rock_Click);
             // 
             // Pop
             // 
+            this.Pop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pop.Image = global::ExamTeamProject.Properties.Resources.PopIcon;
             this.Pop.Location = new System.Drawing.Point(42, 117);
             this.Pop.Name = "Pop";
             this.Pop.Size = new System.Drawing.Size(71, 71);
             this.Pop.TabIndex = 4;
             this.Pop.TabStop = false;
+            this.Pop.Click += new System.EventHandler(this.Pop_Click);
             // 
             // Playlist
             // 
             this.Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
+            this.Playlist.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Playlist.ErrorImage = null;
             this.Playlist.Location = new System.Drawing.Point(329, 442);
             this.Playlist.Name = "Playlist";
@@ -163,6 +183,7 @@ namespace ExamTeamProject
             // Search
             // 
             this.Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
+            this.Search.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search.ErrorImage = null;
             this.Search.Location = new System.Drawing.Point(178, 446);
             this.Search.Name = "Search";
@@ -171,11 +192,25 @@ namespace ExamTeamProject
             this.Search.TabStop = false;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(69, 63);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(347, 364);
+            this.listBox1.TabIndex = 13;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 519);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.KPop);
             this.Controls.Add(this.PunkRock);
             this.Controls.Add(this.Country);
@@ -220,6 +255,7 @@ namespace ExamTeamProject
         private System.Windows.Forms.PictureBox KPop;
         private System.Windows.Forms.PictureBox PunkRock;
         private System.Windows.Forms.PictureBox Country;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
