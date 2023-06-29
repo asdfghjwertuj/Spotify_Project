@@ -10,7 +10,7 @@ namespace ExamTeamProject {
         private PictureBox pbBackground;
 
         private WaveOutEvent waveOut;
-        private string musicFolderPath = "C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Music";
+        private string musicFolderPath = "C:\\Music";
 
         public Form1() {
             InitializeComponent();
@@ -89,7 +89,7 @@ namespace ExamTeamProject {
             }
             catch (Exception ex) {
                 // Обработка возникшей ошибки
-                MessageBox.Show("Ошибка при воспроизведении музыки: " + ex.Message);
+                MessageBox.Show("Music playback error: " + ex.Message);
             }
         }
 
@@ -114,10 +114,8 @@ namespace ExamTeamProject {
             SetButtonsVisibility(false);
         }
 
-
-        private void Pop_Click(object sender, EventArgs e) {
+        private void PopulateListBoxByGenre(string genre) {
             listBox1.Items.Clear(); // Очищаем ListBox перед заполнением
-
             SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
             SetButtonsVisibility(false);
             listBox1.Visible = true;
@@ -126,165 +124,50 @@ namespace ExamTeamProject {
             string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3"); // Фильтруем только файлы формата .mp3
 
             foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile); // Используем библиотеку TagLib для получения свойств файла
-
-                if (file.Tag.Genres.Contains("Pop")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile); // Выводим название файла в ListBox (без разрешения)
+                TagLib.File file = TagLib.File.Create(musicFile);  // Используем библиотеку TagLib для получения свойств файла
+                if (file.Tag.Genres.Contains(genre)) {
+                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
                     listBox1.Items.Add(fileName);
                 }
             }
+        }
+
+
+
+        private void Pop_Click(object sender, EventArgs e) {
+            PopulateListBoxByGenre("Pop");
         }
 
         private void Rock_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("Rock")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("Rock");
         }
 
         private void HipHop_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("HipHop")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("HipHop");
         }
 
         private void Electro_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("Electro")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("Electro");
         }
 
         private void RnB_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("RnB")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("RnB");
         }
 
         private void Latino_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("Latino")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("Latino");
         }
 
         private void Country_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("Country")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("Country");
         }
 
         private void PunkRock_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("PunkRock")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("PunkRock");
         }
 
         private void KPop_Click(object sender, EventArgs e) {
-            listBox1.Items.Clear();
-
-            SetBackgroundImage("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\CategoryBg1.jpg");
-            SetButtonsVisibility(false);
-            listBox1.Visible = true;
-            listBox1.Enabled = true;
-
-            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
-
-            foreach (string musicFile in musicFiles) {
-                TagLib.File file = TagLib.File.Create(musicFile);
-                if (file.Tag.Genres.Contains("Kpop")) {
-                    string fileName = Path.GetFileNameWithoutExtension(musicFile);
-                    listBox1.Items.Add(fileName);
-                }
-            }
+            PopulateListBoxByGenre("Kpop");
         }
 
     }
