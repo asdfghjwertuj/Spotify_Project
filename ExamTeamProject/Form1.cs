@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ExamTeamProject {
@@ -27,7 +28,7 @@ namespace ExamTeamProject {
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+               
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,7 +56,38 @@ namespace ExamTeamProject {
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Получение выбранного плейлиста
+            string selectedPlaylistName = listBox1.SelectedItem.ToString();
+            Playlist selectedPlaylist = playlists.FirstOrDefault(p => p.Name == selectedPlaylistName);
 
+            int count = 1;
+            // Проверка, что плейлист найден
+            if (selectedPlaylist != null)
+            {
+                // Очистка DataGridView перед отображением новых треков
+                dataGridView1.Rows.Clear();
+
+                // Добавление треков плейлиста в DataGridView
+                foreach (Track track in selectedPlaylist.Tracks)
+                {
+                    dataGridView1.Rows.Add(count, track.Name, track.DateOfAdd, track.Duration);
+                    count++;
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            playlists.Add(new Playlist("Избранное"));
+            playlists[0].Tracks.Add(new Track("test15", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test14", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test164", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test1412", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test144", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test14612", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test145412", DateTime.Now, TimeSpan.MaxValue));
+            playlists[0].Tracks.Add(new Track("test1554", DateTime.Now, TimeSpan.MaxValue));
+            listBox1.Items.Add(playlists[0].Name);
         }
     }
 }
