@@ -115,9 +115,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Theme.png" />
+    <None Include="Resources\SongPlayingInterface.png" />
     <None Include="Resources\HipHopIcon.png" />
     <None Include="Resources\ElectroIcon.png" />
     <None Include="Resources\CountryIcon.png" />
+    <None Include="Resources\FavoriteIcon.png" />
     <Content Include="Resources\HomeIcon.png" />
     <None Include="Resources\LatinoIcon.png" />
     <None Include="Resources\KPopIcon.png" />

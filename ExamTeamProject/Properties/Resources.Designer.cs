@@ -83,6 +83,16 @@ namespace ExamTeamProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FavoriteIcon {
+            get {
+                object obj = ResourceManager.GetObject("FavoriteIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HipHopIcon {
             get {
                 object obj = ResourceManager.GetObject("HipHopIcon", resourceCulture);
@@ -166,6 +176,26 @@ namespace ExamTeamProject.Properties {
         internal static System.Drawing.Bitmap RockIcon {
             get {
                 object obj = ResourceManager.GetObject("RockIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SongPlayingInterface {
+            get {
+                object obj = ResourceManager.GetObject("SongPlayingInterface", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Theme {
+            get {
+                object obj = ResourceManager.GetObject("Theme", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
