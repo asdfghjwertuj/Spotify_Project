@@ -114,8 +114,15 @@ namespace ExamTeamProject {
             KPop.Enabled = isVisible;
             
         }
-
-        private void SongPlayingInterfaceVisibility(bool isVisible) {
+        
+        private void SearchingInterfaceVisibility(bool isVisible)
+        {
+            SearchinBox.Visible = isVisible;
+            SearchinBox.Enabled = isVisible;
+            SerachingKey.Visible = isVisible;
+            SerachingKey.Enabled = isVisible;
+        }
+            private void SongPlayingInterfaceVisibility(bool isVisible) {
             SongName.Visible = isVisible;
             ArtistName.Visible = isVisible;
             DurationLabel.Visible = isVisible;
@@ -132,8 +139,14 @@ namespace ExamTeamProject {
             PreviousButton.Enabled = isVisible;
             Favorite.Visible = isVisible;
             Favorite.Enabled = isVisible;
+            
             if (isVisible == true)//фикс того чтобы сразу не появлялись кнопки управления
             {
+                SongPlayingInterface.BringToFront();
+                SongName.BringToFront();
+                ArtistName.BringToFront();
+                DurationLabel.BringToFront();
+                RemainingTimeLabel.BringToFront();
                 PauseButton.BringToFront();
                 StopButton.BringToFront();
                 NextButton.BringToFront();
@@ -148,6 +161,7 @@ namespace ExamTeamProject {
         private void PopulateListBoxByGenre(string genre) {
             listBox1.Items.Clear(); // Очищаем ListBox перед заполнением
             SetButtonsVisibility(false);
+            SearchingInterfaceVisibility(false);
             listBox1.Visible = true;
             listBox1.Enabled = true;
 
@@ -235,6 +249,7 @@ namespace ExamTeamProject {
             SetBackgroundImage(path);
             SetButtonsVisibility(true);
             SongPlayingInterfaceVisibility(false);
+            SearchingInterfaceVisibility(false);
             listBox1.Visible = false;
             listBox1.Enabled = false;
             ThemeButton.Visible = true;
@@ -244,10 +259,13 @@ namespace ExamTeamProject {
 
         private void Search_Click(object sender, EventArgs e) {
             Text = "EchoJukebox :: Search";
-            SearchinBox.Visible = true;
-            SearchinBox.Enabled = true;
-            SerachingKey.Visible = true;
-            SerachingKey.Enabled = true;
+            listBox1.Items.Clear();
+            SearchinBox.Clear();
+            SearchingInterfaceVisibility(true);
+            listBox1.Enabled = true;
+            listBox1.Visible = true;
+            listBox1.BringToFront();
+            
             StopButton_Click(sender, e);
             if (themeManager.GetCurrentTheme() == "Light") {
                 path = themeManager.SetThemeAndBackground(themeManager, new LightThemeState(), 10);
@@ -263,8 +281,32 @@ namespace ExamTeamProject {
             listBox1.Enabled = false;
             ThemeButton.Visible = false;
             ThemeButton.Enabled = false;
+            SearchinBox_TextChanged(sender, e);
         }
+        private void SearchinBox_TextChanged(object sender, EventArgs e)//поиск песен
+        {
+            listBox1.Items.Clear();
+            SearchingInterfaceVisibility(true);
+            listBox1.Enabled = true;
+            listBox1.Visible = true;
+            listBox1.SelectedItem = null;
+            
+            string musicFolderPath = $"{projectFolder}\\ExamTeamProject\\Music";
+            string[] musicFiles = Directory.GetFiles(musicFolderPath, "*.mp3");
 
+
+            foreach (var file in musicFiles)
+            {
+                TagLib.File fileInfo = TagLib.File.Create(file);
+                string fileName = Path.GetFileNameWithoutExtension(file);
+                if (fileName.ToLower().Contains(SearchinBox.Text.ToLower())&& SearchinBox.Text!=String.Empty)//поиск символа введенного в названиях песен
+                {
+                    listBox1.Items.Add(fileName);
+                }
+                
+                
+            }
+        }
         private void Playlist_Click(object sender, EventArgs e) {
             Text = "EchoJukebox :: Playlists";
             StopButton_Click(sender, e);
@@ -276,6 +318,7 @@ namespace ExamTeamProject {
             }
             SetBackgroundImage(path);
             SetButtonsVisibility(false);
+            SearchingInterfaceVisibility(false);
             SongPlayingInterfaceVisibility(false);
             listBox1.Visible = false;
             listBox1.Enabled = false;
@@ -487,10 +530,7 @@ namespace ExamTeamProject {
         }
         #endregion
 
-        private void SearchinBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 
     #region State Pattern
