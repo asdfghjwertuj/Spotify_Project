@@ -9,29 +9,42 @@ namespace ExamTeamProject {
 
     public partial class Form1 : Form {
         private PictureBox pbBackground;
-
+        static string projectFolder = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length - 26);//путь к нашей папке спотифай чтото там
         private WaveOutEvent waveOut; // Объект для вывода звука
         private AudioFileReader audioFileReader; // Объект для чтения аудиофайла
         private Timer timer; // Декларация таймера
         string path = "";
-
+        
         ThemeManager themeManager = new ThemeManager();
 
         private bool isFavorite = false;
 
-        private string musicFolderPath = "C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Music";
+        private string musicFolderPath = $"{projectFolder}\\ExamTeamProject\\Music";
 
         public Form1() {
-
+            
             InitializeComponent();
-
+            Favorite.Enabled = false;//фикс того чтобы сразу не появлялись кнопки управления
+            Favorite.Visible = false;
+            StopButton.Visible = false;
+            SearchinBox.Visible = false;
+            SearchinBox.Enabled = false;
+            SerachingKey.Visible = false;            
+            SerachingKey.Enabled = false;
+            StopButton.Enabled = false;
+            PauseButton.Visible = false;
+            PauseButton.Enabled = false;
+            NextButton.Visible = false;
+            NextButton.Enabled = false;
+            PreviousButton.Visible = false;
+            PreviousButton.Enabled = false;
             InitializeBackgroundImage();
-
+            
             Text = "EchoJukebox";
-            Icon = new Icon("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\Icon.ico");
-            Home.Image = Image.FromFile("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\HomeIcon.png");
-            Search.Image = Image.FromFile("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\SearchIcon.png");
-            Playlist.Image = Image.FromFile("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\PlayIcon.png");
+            Icon = new Icon($"{projectFolder}\\ExamTeamProject\\Resources\\Icon.ico");
+            Home.Image = Image.FromFile($"{projectFolder}\\ExamTeamProject\\Resources\\HomeIcon.png");
+            Search.Image = Image.FromFile($"{projectFolder}\\ExamTeamProject\\Resources\\SearchIcon.png");
+            Playlist.Image = Image.FromFile($"{projectFolder}\\ExamTeamProject\\Resources\\PlayIcon.png");
             listBox1.Visible = false;
             listBox1.Enabled = false;
             progressBar1.Visible = false;
@@ -99,6 +112,7 @@ namespace ExamTeamProject {
             PunkRock.Enabled = isVisible;
             KPop.Visible = isVisible;
             KPop.Enabled = isVisible;
+            
         }
 
         private void SongPlayingInterfaceVisibility(bool isVisible) {
@@ -118,6 +132,16 @@ namespace ExamTeamProject {
             PreviousButton.Enabled = isVisible;
             Favorite.Visible = isVisible;
             Favorite.Enabled = isVisible;
+            if (isVisible == true)//фикс того чтобы сразу не появлялись кнопки управления
+            {
+                PauseButton.BringToFront();
+                StopButton.BringToFront();
+                NextButton.BringToFront();
+                PreviousButton.BringToFront();
+                progressBar1.BringToFront();
+                Favorite.BringToFront();
+                Favorite.BringToFront();
+            }
         }
 
 
@@ -220,6 +244,10 @@ namespace ExamTeamProject {
 
         private void Search_Click(object sender, EventArgs e) {
             Text = "EchoJukebox :: Search";
+            SearchinBox.Visible = true;
+            SearchinBox.Enabled = true;
+            SerachingKey.Visible = true;
+            SerachingKey.Enabled = true;
             StopButton_Click(sender, e);
             if (themeManager.GetCurrentTheme() == "Light") {
                 path = themeManager.SetThemeAndBackground(themeManager, new LightThemeState(), 10);
@@ -449,16 +477,20 @@ namespace ExamTeamProject {
 
         private void Favorite_Click(object sender, EventArgs e) {
             if (isFavorite) {
-                Favorite.Image = Image.FromFile("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\FavoriteIcon.png");
+                Favorite.Image = Image.FromFile($"{projectFolder}\\ExamTeamProject\\Resources\\FavoriteIcon.png");
                 isFavorite = false;
             }
             else {
-                Favorite.Image = Image.FromFile("C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\FavoriteIcon1.png");
+                Favorite.Image = Image.FromFile($"{projectFolder}\\ExamTeamProject\\Resources\\FavoriteIcon1.png");
                 isFavorite = true;
             }
         }
         #endregion
 
+        private void SearchinBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     #region State Pattern
@@ -490,8 +522,10 @@ namespace ExamTeamProject {
     // Класс, управляющий темой приложения
     public class ThemeManager {
         private ThemeState currentThemeState;
-        private string LightfolderPath = "C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\LightBg";
-        private string DarkfolderPath = "C:\\Users\\pktb\\source\\repos\\ExamTeamProject\\ExamTeamProject\\Resources\\DarkBg";
+        static private string userProfilePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        private string LightfolderPath = Path.Combine(userProfilePath, "source", "repos", "Spotify_Project", "ExamTeamProject", "Resources", "LightBg");
+        static private string userProfilePath2 = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        private string DarkfolderPath = Path.Combine(userProfilePath, "source", "repos", "Spotify_Project", "ExamTeamProject", "Resources", "DarkBg");
         private string[] lightBackgrounds; // Массив светлых фонов
         private string[] darkBackgrounds; // Массив темных фонов
 

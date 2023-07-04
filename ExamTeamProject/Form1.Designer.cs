@@ -54,6 +54,8 @@ namespace ExamTeamProject
             this.Pop = new System.Windows.Forms.PictureBox();
             this.Playlist = new System.Windows.Forms.PictureBox();
             this.Search = new System.Windows.Forms.PictureBox();
+            this.SearchinBox = new System.Windows.Forms.TextBox();
+            this.SerachingKey = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Home)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ThemeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Favorite)).BeginInit();
@@ -156,11 +158,11 @@ namespace ExamTeamProject
             this.DurationLabel.AutoSize = true;
             this.DurationLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
             this.DurationLabel.Enabled = false;
-            this.DurationLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DurationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DurationLabel.ForeColor = System.Drawing.Color.White;
             this.DurationLabel.Location = new System.Drawing.Point(450, 392);
             this.DurationLabel.Name = "DurationLabel";
-            this.DurationLabel.Size = new System.Drawing.Size(37, 12);
+            this.DurationLabel.Size = new System.Drawing.Size(28, 12);
             this.DurationLabel.TabIndex = 55;
             this.DurationLabel.Text = "00:00";
             this.DurationLabel.Visible = false;
@@ -170,11 +172,11 @@ namespace ExamTeamProject
             this.RemainingTimeLabel.AutoSize = true;
             this.RemainingTimeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
             this.RemainingTimeLabel.Enabled = false;
-            this.RemainingTimeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RemainingTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RemainingTimeLabel.ForeColor = System.Drawing.Color.White;
             this.RemainingTimeLabel.Location = new System.Drawing.Point(4, 389);
             this.RemainingTimeLabel.Name = "RemainingTimeLabel";
-            this.RemainingTimeLabel.Size = new System.Drawing.Size(37, 12);
+            this.RemainingTimeLabel.Size = new System.Drawing.Size(28, 12);
             this.RemainingTimeLabel.TabIndex = 54;
             this.RemainingTimeLabel.Text = "00:00";
             this.RemainingTimeLabel.Visible = false;
@@ -184,11 +186,11 @@ namespace ExamTeamProject
             this.ArtistName.AutoSize = true;
             this.ArtistName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
             this.ArtistName.Enabled = false;
-            this.ArtistName.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ArtistName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ArtistName.ForeColor = System.Drawing.Color.White;
             this.ArtistName.Location = new System.Drawing.Point(3, 321);
             this.ArtistName.Name = "ArtistName";
-            this.ArtistName.Size = new System.Drawing.Size(43, 16);
+            this.ArtistName.Size = new System.Drawing.Size(35, 16);
             this.ArtistName.TabIndex = 48;
             this.ArtistName.Text = "artist";
             this.ArtistName.Visible = false;
@@ -198,11 +200,11 @@ namespace ExamTeamProject
             this.SongName.AutoSize = true;
             this.SongName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(76)))), ((int)(((byte)(20)))));
             this.SongName.Enabled = false;
-            this.SongName.Font = new System.Drawing.Font("MS Reference Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SongName.ForeColor = System.Drawing.Color.White;
             this.SongName.Location = new System.Drawing.Point(3, 299);
             this.SongName.Name = "SongName";
-            this.SongName.Size = new System.Drawing.Size(54, 22);
+            this.SongName.Size = new System.Drawing.Size(47, 20);
             this.SongName.TabIndex = 47;
             this.SongName.Text = "Song";
             this.SongName.Visible = false;
@@ -367,17 +369,37 @@ namespace ExamTeamProject
             this.Search.TabStop = false;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
+            // SearchinBox
+            // 
+            this.SearchinBox.Location = new System.Drawing.Point(69, 37);
+            this.SearchinBox.Name = "SearchinBox";
+            this.SearchinBox.Size = new System.Drawing.Size(309, 20);
+            this.SearchinBox.TabIndex = 58;
+            this.SearchinBox.TextChanged += new System.EventHandler(this.SearchinBox_TextChanged);
+            // 
+            // SerachingKey
+            // 
+            this.SerachingKey.Location = new System.Drawing.Point(384, 35);
+            this.SerachingKey.Name = "SerachingKey";
+            this.SerachingKey.Size = new System.Drawing.Size(75, 23);
+            this.SerachingKey.TabIndex = 59;
+            this.SerachingKey.Text = "Search";
+            this.SerachingKey.UseVisualStyleBackColor = true;
+            this.SerachingKey.TextChanged += new System.EventHandler(this.SearchinBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 519);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.SerachingKey);
+            this.Controls.Add(this.SearchinBox);
             this.Controls.Add(this.Favorite);
-            this.Controls.Add(this.NextButton);
-            this.Controls.Add(this.StopButton);
-            this.Controls.Add(this.PauseButton);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.PreviousButton);
+            this.Controls.Add(this.PauseButton);
+            this.Controls.Add(this.StopButton);
+            this.Controls.Add(this.NextButton);
             this.Controls.Add(this.DurationLabel);
             this.Controls.Add(this.RemainingTimeLabel);
             this.Controls.Add(this.ArtistName);
@@ -446,6 +468,8 @@ namespace ExamTeamProject
         private System.Windows.Forms.Label ArtistName;
         private System.Windows.Forms.Label SongName;
         private System.Windows.Forms.PictureBox SongPlayingInterface;
+        private System.Windows.Forms.TextBox SearchinBox;
+        private System.Windows.Forms.Button SerachingKey;
     }
 }
 
