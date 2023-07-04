@@ -37,12 +37,13 @@ namespace ExamTeamProject
             this.nameMusic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,15 +70,22 @@ namespace ExamTeamProject
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberMusic,
             this.nameMusic,
             this.dateOfAdd,
             this.time});
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip2;
             this.dataGridView1.Location = new System.Drawing.Point(143, 12);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(533, 320);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -103,15 +111,54 @@ namespace ExamTeamProject
             this.time.HeaderText = "Время";
             this.time.Name = "time";
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 26);
+            this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
+            // 
             // listBox1
             // 
             this.listBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(9, 129);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(128, 199);
+            this.listBox1.Size = new System.Drawing.Size(128, 204);
             this.listBox1.TabIndex = 3;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditToolStripMenuItem,
+            this.DeleteToolStripMenuItem,
+            this.InformationToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            // 
+            // EditToolStripMenuItem
+            // 
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.EditToolStripMenuItem.Text = "Редактировать";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
+            // 
+            // DeleteToolStripMenuItem
+            // 
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
+            // InformationToolStripMenuItem
+            // 
+            this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
+            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.InformationToolStripMenuItem.Text = "Информация";
             // 
             // button3
             // 
@@ -122,33 +169,6 @@ namespace ExamTeamProject
             this.button3.Text = "Главная";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.редактироватьToolStripMenuItem,
-            this.удалитьToolStripMenuItem,
-            this.информацияToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
-            // 
-            // редактироватьToolStripMenuItem
-            // 
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
-            // 
-            // удалитьToolStripMenuItem
-            // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            // 
-            // информацияToolStripMenuItem
-            // 
-            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.информацияToolStripMenuItem.Text = "Информация";
             // 
             // Form1
             // 
@@ -184,9 +204,10 @@ namespace ExamTeamProject
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem InformationToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
 
