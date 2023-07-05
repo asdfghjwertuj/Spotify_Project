@@ -31,21 +31,23 @@ namespace ExamTeamProject
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numberMusic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameMusic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.InformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button3 = new System.Windows.Forms.Button();
+            this.numberMusic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameMusic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -58,16 +60,6 @@ namespace ExamTeamProject
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(9, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 33);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Добавить в плейлист";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -78,6 +70,7 @@ namespace ExamTeamProject
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numberMusic,
             this.nameMusic,
+            this.Author,
             this.dateOfAdd,
             this.time});
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip2;
@@ -86,36 +79,14 @@ namespace ExamTeamProject
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(533, 320);
+            this.dataGridView1.Size = new System.Drawing.Size(614, 320);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // numberMusic
-            // 
-            this.numberMusic.HeaderText = "#";
-            this.numberMusic.Name = "numberMusic";
-            this.numberMusic.Width = 28;
-            // 
-            // nameMusic
-            // 
-            this.nameMusic.HeaderText = "Название";
-            this.nameMusic.Name = "nameMusic";
-            this.nameMusic.Width = 300;
-            // 
-            // dateOfAdd
-            // 
-            this.dateOfAdd.HeaderText = "Дата добавления";
-            this.dateOfAdd.Name = "dateOfAdd";
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Время";
-            this.time.Name = "time";
             // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 26);
-            this.contextMenuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip2.Click += new System.EventHandler(this.contextMenuStrip2_Click);
             // 
             // listBox1
             // 
@@ -134,10 +105,9 @@ namespace ExamTeamProject
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditToolStripMenuItem,
-            this.DeleteToolStripMenuItem,
-            this.InformationToolStripMenuItem});
+            this.DeleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 48);
             // 
             // EditToolStripMenuItem
             // 
@@ -154,12 +124,6 @@ namespace ExamTeamProject
             this.DeleteToolStripMenuItem.Text = "Удалить";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
-            // InformationToolStripMenuItem
-            // 
-            this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
-            this.InformationToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.InformationToolStripMenuItem.Text = "Информация";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(9, 90);
@@ -170,24 +134,64 @@ namespace ExamTeamProject
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // numberMusic
+            // 
+            this.numberMusic.HeaderText = "#";
+            this.numberMusic.Name = "numberMusic";
+            this.numberMusic.Width = 28;
+            // 
+            // nameMusic
+            // 
+            this.nameMusic.HeaderText = "Название";
+            this.nameMusic.Name = "nameMusic";
+            this.nameMusic.Width = 300;
+            // 
+            // Author
+            // 
+            this.Author.HeaderText = "Исполнитель";
+            this.Author.Name = "Author";
+            this.Author.Width = 80;
+            // 
+            // dateOfAdd
+            // 
+            this.dateOfAdd.HeaderText = "Дата добавления";
+            this.dateOfAdd.Name = "dateOfAdd";
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Время";
+            this.time.Name = "time";
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(181, 48);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 671);
+            this.ClientSize = new System.Drawing.Size(791, 346);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.MaximumSize = new System.Drawing.Size(1366, 750);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Form1";
             this.Text = "Spotify 95";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -195,19 +199,20 @@ namespace ExamTeamProject
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberMusic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameMusic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem InformationToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numberMusic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameMusic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
     }
 }
 
